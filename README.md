@@ -1,139 +1,94 @@
 # matplotlib-challenge
+ 
+What good is data without a good plot to tell the story?
+
+In this assignment, you’ll apply what you've learned about Matplotlib to a real-world situation and dataset.
+
 Background
-Data's true power is its ability to definitively answer questions. So, let's take what you've learned about Python requests, APIs, and JSON traversals to answer a fundamental question: "What is the weather like as we approach the equator?"
+You've just joined Pymaceuticals, Inc., a new pharmaceutical company that specializes in anti-cancer medications. Recently, it began screening for potential treatments for squamous cell carcinoma (SCC), a commonly occurring form of skin cancer.
 
-Now, we know what you may be thinking: “That’s obvious. It gets hotter.” But, if pressed for more information, how would you prove that?
+As a senior data analyst at the company, you've been given access to the complete data from their most recent animal study. In this study, 249 mice who were identified with SCC tumors received treatment with a range of drug regimens. Over the course of 45 days, tumor development was observed and measured. The purpose of this study was to compare the performance of Pymaceuticals’ drug of interest, Capomulin, against the other treatment regimens.
 
-Before You Begin
-Create a new repository for this project called python-api-challenge. Do not add this homework to an existing repository.
-
-Clone the new repository to your computer.
-
-Inside your local Git repository, create a directory for this assignment. Use a folder name that corresponds to the Challenges, such as WeatherPy.
-
-Inside the folder you just created, add the files called api_keys.py, WeatherPy.ipynb, and VacationPy.ipynb that you will find in the starter code ZIP file provided. These will be the main scripts to run for each analysis.
-
-Before you push your changes to GitHub, add a .gitignore file.
-
-Add a .gitignore File
-For this assignment, you will need to add a .gitignore file to your repo. Doing so will prevent the api_keys.py file that contains your API key from being shared with the public. If you skip this step, anyone using GitHub could copy and use your API key, and you may incur charges as a result.
-
-To get started, type git status in the command line to see a list of all the untracked files that you have created so far.
-
-To add only the WeatherPy.ipynb file to GitHub, for example, type git add WeatherPy.ipynb. Keep in mind that you would have to add each file individually when adding or updating a file. A more efficient solution is to add all of the files that you don't want to track to the .gitignore file.
-
-Before adding your files to GitHub, add api_keys.py to the .gitignore file by following these steps:
-
-Open your python-api-challenge GitHub folder in VS Code.
-
-Open the .gitignore file and type the following code on the first line:
-
-# Adding config.py file.
-api_keys.py
-In the command line, type git status and press Enter. The output should indicate that the .gitignore file has been modified and the api_keys.py file is untracked.
-
-Use git add, git commit, and git push to commit the modifications to the .gitignore, WeatherPy.ipynb and VacationPy.ipynb files to GitHub.
-
-On GitHub, the only new python files you should find are WeatherPy.ipynb and VacationPy.ipynb.
+The executive team has tasked you with generating all of the tables and figures needed for the technical report of the clinical study. They have also asked you for a top-level summary of the study results.
 
 Files
 Download the following files to help you get started:
 
-Module 6 Challenge filesLinks to an external site.
+Module 5 Challenge filesLinks to an external site.
 
 Instructions
-This activity is broken down into two deliverables, WeatherPy and VacationPy.
+This assignment is broken down into the following tasks:
 
-Part 1: WeatherPy
-In this deliverable, you'll create a Python script to visualize the weather of over 500 cities of varying distances from the equator. You'll use the citipy Python libraryLinks to an external site., the OpenWeatherMap APILinks to an external site., and your problem-solving skills to create a representative model of weather across cities.
+Prepare the data.
 
-For this part, you'll use the WeatherPy.ipynb Jupyter notebook provided in the starter code ZIP file. The starter code will guide you through the process of using your Python coding skills to develop a solution to address the required functionalities.
+Generate summary statistics.
 
-To get started, the code required to generate random geographic coordinates and the nearest city to each latitude and longitude combination is provided.
+Create bar charts and pie charts.
 
-Requirement 1: Create Plots to Showcase the Relationship Between Weather Variables and Latitude
-To fulfill the first requirement, you'll use the OpenWeatherMap API to retrieve weather data from the cities list generated in the starter code. Next, you'll create a series of scatter plots to showcase the following relationships:
+Calculate quartiles, find outliers, and create a box plot.
 
-Latitude vs. Temperature
+Create a line plot and a scatter plot.
 
-Latitude vs. Humidity
+Calculate correlation and regression.
 
-Latitude vs. Cloudiness
+Submit your final analysis.
 
-Latitude vs. Wind Speed
+Prepare the Data
+Run the provided package dependency and data imports, and then merge the mouse_metadata and study_results DataFrames into a single DataFrame.
 
-Requirement 2: Compute Linear Regression for Each Relationship
-To fulfill the second requirement, compute the linear regression for each relationship. Separate the plots into Northern Hemisphere (greater than or equal to 0 degrees latitude) and Southern Hemisphere (less than 0 degrees latitude). You may find it helpful to define a function in order to create the linear regression plots.
+Display the number of unique mice IDs in the data, and then check for any mouse ID with duplicate time points. Display the data associated with that mouse ID, and then create a new DataFrame where this data is removed. Use this cleaned DataFrame for the remaining steps.
 
-Next, create a series of scatter plots. Be sure to include the linear regression line, the model's formula, and the r values as you can see in the following image
+Display the updated number of unique mice IDs.
 
-Sample scatter plot with the linear regression line.
-You should create the following plots:
+Generate Summary Statistics
+Create a DataFrame of summary statistics. Remember, there is more than one method to produce the results you're after, so the method you use is less important than the result.
 
-Northern Hemisphere: Temperature vs. Latitude
+Your summary statistics should include:
 
-Southern Hemisphere: Temperature vs. Latitude
+A row for each drug regimen. These regimen names should be contained in the index column.
 
-Northern Hemisphere: Humidity vs. Latitude
+A column for each of the following statistics: mean, median, variance, standard deviation, and SEM of the tumor volume.
 
-Southern Hemisphere: Humidity vs. Latitude
+Create Bar Charts and Pie Charts
+Generate two bar charts. Both charts should be identical and show the total total number of rows (Mouse ID/Timepoints) for each drug regimen throughout the study.
 
-Northern Hemisphere: Cloudiness vs. Latitude
+Create the first bar chart with the Pandas DataFrame.plot() method.
 
-Southern Hemisphere: Cloudiness vs. Latitude
+Create the second bar chart with Matplotlib's pyplot methods.
 
-Northern Hemisphere: Wind Speed vs. Latitude
+Generate two pie charts. Both charts should be identical and show the distribution of female versus male mice in the study.
 
-Southern Hemisphere: Wind Speed vs. Latitude
+Create the first pie chart with the Pandas DataFrame.plot() method.
 
-After each pair of plots, explain what the linear regression is modeling. Describe any relationships that you notice and any other findings you may uncover.
+Create the second pie chart with Matplotlib's pyplot methods.
 
-Part 2: VacationPy
-In this deliverable, you'll use your weather data skills to plan future vacations. Also, you'll use Jupyter notebooks, the geoViews Python library, and the Geoapify API.
+Calculate Quartiles, Find Outliers, and Create a Box Plot
+Calculate the final tumor volume of each mouse across four of the most promising treatment regimens: Capomulin, Ramicane, Infubinol, and Ceftamin. Then, calculate the quartiles and IQR, and determine if there are any potential outliers across all four treatment regimens. Use the following substeps:
 
-The code needed to import the required libraries and load the CSV file with the weather and coordinates data for each city created in Part 1 is provided to help you get started.
+Create a grouped DataFrame that shows the last (greatest) time point for each mouse. Merge this grouped DataFrame with the original cleaned DataFrame.
 
-Your main tasks will be to use the Geoapify API and the geoViews Python library and employ your Python skills to create map visualizations.
+Create a list that holds the treatment names as well as a second, empty list to hold the tumor volume data.
 
-To succeed on this deliverable of the assignment, open the VacationPy.ipynb starter code and complete the following steps:
+Loop through each drug in the treatment list, locating the rows in the merged DataFrame that correspond to each treatment. Append the resulting final tumor volumes for each drug to the empty list.
 
-Create a map that displays a point for every city in the city_data_df DataFrame as shown in the following image. The size of the point should be the humidity in each city.
+Determine outliers by using the upper and lower bounds, and then print the results.
 
-Humidity map
-Narrow down the city_data_df DataFrame to find your ideal weather condition. For example:
+Using Matplotlib, generate a box plot that shows the distribution of the final tumor volume for all the mice in each treatment group. Highlight any potential outliers in the plot by changing their color and style.
 
-A max temperature lower than 27 degrees but higher than 21
+hint: All four box plots should be within the same figure. Use this Matplotlib documentation pageLinks to an external site. for help with changing the style of the outliers.
 
-Wind speed less than 4.5 m/s
+Create a Line Plot and a Scatter Plot
+Select a single mouse that was treated with Capomulin, and generate a line plot of tumor volume versus time point for that mouse.
 
-Zero cloudiness
+Generate a scatter plot of mouse weight versus average observed tumor volume for the entire Capomulin treatment regimen.
 
-NOTE
-Feel free to adjust your specifications but make sure to set a reasonable limit to the number of rows returned by your API requests.
+Calculate Correlation and Regression
+Calculate the correlation coefficient and linear regression model between mouse weight and average observed tumor volume for the entire Capomulin treatment regimen.
 
-Create a new DataFrame called hotel_df to store the city, country, coordinates, and humidity.
+Plot the linear regression model on top of the previous scatter plot.
 
-For each city, use the Geoapify API to find the first hotel located within 10,000 meters of your coordinates.
 
-Add the hotel name and the country as additional information in the hover message for each city on the map as in the following image:
 
-Hotel map
-Hints and Considerations
-The city data that you generate is based on random coordinates and different query times, so your outputs will not be an exact match to the provided starter notebook.
 
-If you'd like a refresher on the geographic coordinate system, this siteLinks to an external site. has great information.
-
-Take some time to study the OpenWeatherMap API. Based on your initial study, you should be able to answer basic questions about the API: Where do you request the API key? Which Weather API in particular will you need? What URL endpoints does it expect? What JSON structure does it respond with? Before you write a line of code, you should have a crystal-clear understanding of your intended outcome.
-
-A starter code for citipy has been provided. However, if you're craving an extra challenge, push yourself to learn how it works by using the citipy Python libraryLinks to an external site.. Before you try to incorporate the library in your analysis, start with simple test cases outside of your main script to confirm that you are using it correctly. Often, when introduced to a new library, learners spend hours trying to figure out errors in their code when a simple test case can save you a lot of time and frustration.
-
-You will need to apply your critical thinking skills to understand how and why we're recommending these tools. What is citipy used for? Why would you use it in conjunction with the OpenWeatherMap API? How would you do so?
-
-While building your script, pay attention to the cities you are using in your query pool. Are you covering the full range of latitudes and longitudes? Or are you choosing 500 cities from one region of the world? Even if you were a geography genius, simply listing 500 cities based on your personal selection would create a biased dataset. Try to think of ways that you can counter these selection issues.
-
-Hint: Consider the full range of latitudes.
-Once you have computed the linear regression for one relationship, you will follow a similar process for all other charts. Optionally, try to create a function that will create these charts based on different parameters. (Note: there will be no extra points for completing this.)
-
-Remember that each coordinate will trigger a separate call to the Google API. If you're creating your own criteria to plan your vacation, try to reduce the results in your DataFrame to 10 or fewer cities.
 
 
